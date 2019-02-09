@@ -1,3 +1,4 @@
+const {forEachAsync} = require('./utils')
 const searchLocation = require('./search-location')
 
 const printLocationName = async location => {
@@ -7,8 +8,8 @@ const printLocationName = async location => {
   return data ? data.area : null
 }
 
-const timeWeather = location => {
-  printLocationName(location)
+const timeWeather = locations => {
+  forEachAsync(locations, printLocationName)
 }
 
 module.exports = timeWeather
