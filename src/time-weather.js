@@ -1,6 +1,7 @@
 const {forEachAsync, flowAsync} = require('./utils')
 const searchLocation = require('./search-location')
 const localTime = require('./local-time')
+const localWeather = require('./local-weather')
 
 const printLocationName = async location => {
   const data = await searchLocation(location)
@@ -16,9 +17,17 @@ const printTime = async location => {
   return location
 }
 
+const printWeather = async location => {
+  if (!location) return null
+  const data = await localWeather(location)
+  for (const key in data)
+    console.log(`    ${key}: ${data[key]}`)
+}
+
 const printResults = flowAsync(
   printLocationName,
-  printTime
+  printTime,
+  printWeather
 )
 
 const timeWeather = locations => {
