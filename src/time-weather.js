@@ -4,7 +4,7 @@ const localTime = require('./local-time')
 const localWeather = require('./local-weather')
 
 const printLocationName = async location => {
-  const data = await searchLocation(location)
+  const data = location ? await searchLocation(location) : null
   console.log(data ? (`${data.area}, ${data.region}, ${data.country}`
     ) : 'Location not found')
   return data ? data.area : null
@@ -22,6 +22,7 @@ const printWeather = async location => {
   const data = await localWeather(location)
   for (const key in data)
     console.log(`    ${key}: ${data[key]}`)
+  return location
 }
 
 const printResults = flowAsync(
