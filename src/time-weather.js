@@ -1,4 +1,4 @@
-const {forEachAsync, flowAsync} = require('./utils')
+const {forEachAsync, flowAsync, printEmptyLine} = require('./utils')
 const searchLocation = require('./search-location')
 const localTime = require('./local-time')
 const localWeather = require('./local-weather')
@@ -28,7 +28,8 @@ const printWeather = async location => {
 const printResults = flowAsync(
   printLocationName,
   printTime,
-  printWeather
+  printWeather,
+  printEmptyLine
 )
 
 const timeWeather = locations => {
