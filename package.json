@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/martymagaan/time-weather/issues"
   },
-  "homepage": "https://github.com/martymagaan/time-weather#readme"
+  "homepage": "https://github.com/martymagaan/time-weather#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
 }
