@@ -7,8 +7,11 @@ const flowAsync = (...fns) => (
   fns.reduceRight((f, g) => async x => await g(x).then(f))
 )
 
+const printEmptyLine = () => console.log('')
+
 module.exports = {
   forEachAsync,
-  flowAsync
+  flowAsync,
+  printEmptyLine
 }
 
