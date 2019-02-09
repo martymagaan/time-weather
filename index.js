@@ -1,7 +1,11 @@
 const timeWeather = require('./src/time-weather')
 
 timeWeather([
-  'New York',
-  'fdafda'
+  '11355',
+  'California',
+  '',
+  'England',
+  null,
+  4312
 ])
 
