@@ -3,7 +3,12 @@ const forEachAsync = async (arr, fn) => {
     await fn(arr[i])
 }
 
+const flowAsync = (...fns) => (
+  fns.reduceRight((f, g) => async x => await g(x).then(f))
+)
+
 module.exports = {
-  forEachAsync
+  forEachAsync,
+  flowAsync
 }
 
